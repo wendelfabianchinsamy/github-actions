@@ -25,7 +25,7 @@ jobs:
             - name: Get code from repository
               uses: actions/checkout@v4.1.0
             - name: Install NodeJS
-              uses: actions/setup-node@3.8.1
+              uses: actions/setup-node@v3.8.1
               with:
                 node-version: 18
             - name: Install dependencies
