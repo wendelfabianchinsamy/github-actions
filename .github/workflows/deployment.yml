@@ -20,6 +20,11 @@ jobs:
             - name: Run tests
               run: npm test
     deploy:
+        # the deploy job needs the 
+        # test job to finish before
+        # it starts.
+        # needs: [test, foo, bar] to wait for multiple
+        needs: test
         runs-on: ubuntu-latest
         steps:
             - name: Get code from repository
