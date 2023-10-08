@@ -1,0 +1,22 @@
+name: Test Project
+# run this each time a new push happens to our repository
+on: push
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get code from repository
+              # using the github checkout action
+              # with allows you to provide configuration
+              # by default the repository that the workflow exists on will be used
+              uses: actions/checkout@v4.1.0
+            - name: Install NodeJS
+              # may not necessarily have to do this
+              # nodejs comes installed on the latest ubuntu
+              uses: actions/setup-node@v3.8.1
+              with:
+                node-version: 18
+            - name: Install dependencies
+              run: npm ci # npm ci makes sure that you use the version in the package.lock file
+            - name: Run tests
+              run: npm test
