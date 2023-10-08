@@ -4,7 +4,10 @@
 # typically you would want your tests to pass before
 # deploying the code
 name: Deploy Project
-on: push
+# a workflow can have multiple triggers
+# here we will set the trigger to both push and 
+# workflow_dispatch (manual)
+on: [push, workflow_dispatch]
 jobs:
     test:
         runs-on: ubuntu-latest
